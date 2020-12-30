@@ -1,14 +1,14 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PizzaList from '../components/PizzaList';
+import ToppingsFilter from '../components/ToppingsFilter';
 
 export default function PizzaPage({ data }) {
   const pizzas = data.pizzas.nodes;
   console.log(data.pizzas);
   return (
     <>
-      <p>Pizza page</p>
-      <p>There are {pizzas.length} pizzas</p>
+      <ToppingsFilter />
       <PizzaList pizzas={pizzas} />
     </>
   );
@@ -24,12 +24,15 @@ export const query = graphql`
         slug {
           current
         }
-        topping {
+        toppings {
           id
           name
         }
         image {
           asset {
+            fixed(width: 200, height: 200) {
+              ...GatsbySanityImageFixed
+            }
             fluid(maxWidth: 400) {
               ...GatsbySanityImageFluid
             }

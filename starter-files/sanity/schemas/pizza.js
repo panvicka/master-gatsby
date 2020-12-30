@@ -1,5 +1,5 @@
 import { MdLocalPizza as icon } from 'react-icons/md';
-import PriceInput from '../components/PriceInput'
+import PriceInput from '../components/PriceInput';
 
 export default {
   // computer name
@@ -41,8 +41,8 @@ export default {
       inputComponent: PriceInput,
     },
     {
-      name: 'topping',
-      title: 'Toping',
+      name: 'toppings',
+      title: 'Toppings',
       type: 'array',
       of: [{ type: 'reference', to: [{ type: 'topping' }] }],
     },
@@ -51,10 +51,10 @@ export default {
     select: {
       title: 'name',
       media: 'image',
-      topping0: 'topping.0.name',
-      topping1: 'topping.1.name',
-      topping2: 'topping.2.name',
-      topping3: 'topping.3.name',
+      topping0: 'toppings.0.name',
+      topping1: 'toppings.1.name',
+      topping2: 'toppings.2.name',
+      topping3: 'toppings.3.name',
     },
     prepare: ({ title, media, ...toppings }) => {
       console.log(toppings);
